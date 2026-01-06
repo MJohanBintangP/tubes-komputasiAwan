@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Scaling Demo - Kelompok IKAN</title>
+    <style>
+      body {
+        font-family: Arial;
+        padding: 20px;
+      }
+      button {
+        padding: 10px 20px;
+        margin-bottom: 10px;
+      }
+      pre {
+        background: #f4f4f4;
+        padding: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Demo Scaling - Kelompok IKAN</h1>
+    <button id="refreshBtn">Refresh</button>
+    <pre id="output"></pre>
+
+    <script>
+      const btn = document.getElementById("refreshBtn");
+      const output = document.getElementById("output");
+
+      btn.addEventListener("click", async () => {
+        try {
+          const res = await fetch("/api/");
+          const data = await res.json();
+          output.textContent = JSON.stringify(data, null, 2);
+        } catch (err) {
+          output.textContent = "Error: " + err;
+        }
+      });
+    </script>
+  </body>
+</html>
