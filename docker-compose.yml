@@ -12,6 +12,8 @@ services:
       - backend1
       - backend2
       - backend3
+      - backend4
+      - backend5
 
   backend1:
     build: ./app
@@ -27,3 +29,13 @@ services:
     build: ./app
     environment:
       - INSTANCE_NAME=backend3
+
+  backend4:
+    build: ./app
+    environment:
+      - INSTANCE_NAME=backend4
+
+  backend5:
+    build: ./app
+    environment:
+      - INSTANCE_NAME=backend5
